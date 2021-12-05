@@ -5,9 +5,9 @@ const AntsContext = React.createContext();
 const AntsProvider = (props) => {
   const numRamdon = Math.floor(Math.random() * 9e9);
   const probabilityState = {
-    0: "not yet run",
-    1: "in progress",
-    2: "calculated",
+    0: "Not yet run",
+    1: "In progress",
+    2: "Calculated",
   };
   const [ants, setAnts] = useState([]);
   const getAnts = async () => {
@@ -71,7 +71,7 @@ const AntsProvider = (props) => {
         if (ant.id === antProbability.id) {
           ant.probability = likelihoodOfAntWinning;
           ant.probabilityState = probabilityState[2];
-          ant.colorState = 'green';
+          ant.colorState = '#1e0039';
         }
         calculateAnts.push(ant);
       });
@@ -85,7 +85,7 @@ const AntsProvider = (props) => {
     ants.forEach((ant) => {
       if (ant.id === antUpdate.id) {
         ant.probabilityState = probabilityState[State];
-        ant.colorState = 'yellow';
+        ant.colorState = '#560CCE';
       }
       updateAnts.push(ant);
     });

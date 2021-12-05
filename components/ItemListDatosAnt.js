@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 12,
     fontWeight: "bold",
-    color: "#312f2c",
+    color: "#7a7a7a",
   },
   description: {
     fontSize: 12,
-    color: "#312f2c",
+    color: "#7a7a7a",
   },
 });

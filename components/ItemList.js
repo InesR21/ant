@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
-import { TouchableWithoutFeedback, Text, View, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 import { AntsContext } from "../provider/antsProvider";
 import ItemListDatosAnt from "./ItemListDatosAnt";
 import ItemListImage from "./ItemListImage";
 
 export default ({ ant }) => {
-    const { calculateAntProbability } = useContext(AntsContext)
+  const { calculateAntProbability } = useContext(AntsContext);
   return (
-    <TouchableWithoutFeedback onPress={() => {calculateAntProbability(ant)}}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      style={{ opacity: 1}}
+      onPress={() => {
+        calculateAntProbability(ant);
+      }}
+    >
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <ItemListImage lengthImage={ant.length} />
@@ -18,11 +24,13 @@ export default ({ ant }) => {
           </View>
           <View style={styles.textLeftContainer}>
             <Text style={styles.title}>Probability</Text>
-            <Text numberOfLines={1} style={styles.title}>{ant.probability}</Text>
+            <Text numberOfLines={1} style={styles.title}>
+              {ant.probability}
+            </Text>
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
@@ -31,16 +39,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: 5,
     marginTop: 15,
-    borderRadius: 3,
-    backgroundColor: "#57605C",
+    borderRadius: 1,
+    backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 20,
+      height: 30,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.35,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 3,
+    borderWidth: 0.2,
+    borderColor: "#bababa",
   },
   imageContainer: {
     flex: 2,
@@ -56,7 +66,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     fontWeight: "bold",
-    color: "#312f2c",
+    color: "#1e0039",
+    marginRight: 10,
   },
   textRightContainer: {
     flexDirection: "row",
