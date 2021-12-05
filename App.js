@@ -1,21 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// react-navigation
+import 'react-native-gesture-handler';
+// Providers
+import { AntsProvider } from './provider/antsProvider';
+//Routes
+import Routes from './router/Routes';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default () => {
+    return (  
+        <AntsProvider>
+           <Routes />
+        </AntsProvider>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
