@@ -24,10 +24,11 @@ const AntsProvider = (props) => {
       const antsData = getFormatAnts(data?.data?.ants);
       setAnts(antsData);
     } catch (error) {
+      setAnts([]);
       console.error(error);
     }
   };
-  const getFormatAnts = (antsFormat, probability = 0) => {
+  const getFormatAnts = (antsFormat) => {
     let formatAnts = [];
     antsFormat.forEach((ant) => {
       formatAnts.push({
@@ -36,9 +37,9 @@ const AntsProvider = (props) => {
         length: ant.length,
         color: ant.color.toLowerCase(),
         weight: ant.weight,
-        probability: probability,
+        probability: 0,
         probabilityState: probabilityState[0],
-        colorState: '#312f2c',
+        colorState: "#312f2c",
         image: `https://picsum.photos/200/300?random=${ant.length}`,
       });
     });
@@ -71,11 +72,11 @@ const AntsProvider = (props) => {
         if (ant.id === antProbability.id) {
           ant.probability = likelihoodOfAntWinning;
           ant.probabilityState = probabilityState[2];
-          ant.colorState = '#1e0039';
+          ant.colorState = "#1e0039";
         }
         calculateAnts.push(ant);
       });
-        orderAnts(calculateAnts);
+      orderAnts(calculateAnts);
     };
     probability(callback);
   };
@@ -85,7 +86,7 @@ const AntsProvider = (props) => {
     ants.forEach((ant) => {
       if (ant.id === antUpdate.id) {
         ant.probabilityState = probabilityState[State];
-        ant.colorState = '#560CCE';
+        ant.colorState = "#560CCE";
       }
       updateAnts.push(ant);
     });

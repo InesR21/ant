@@ -9,7 +9,7 @@ export default ({ ant }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
-      style={{ opacity: 1}}
+      style={{ opacity: 1 }}
       onPress={() => {
         calculateAntProbability(ant);
       }}

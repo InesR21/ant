@@ -3,7 +3,7 @@ import { FlatList, Text, StyleSheet } from "react-native";
 import ItemList from "./ItemList";
 
 export default ({ ants }) => {
-  const handleEmpty = () => <Text  style={styles.empty} > No data present!</Text>;
+  const handleEmpty = () => <Text style={styles.empty}> No data present!</Text>;
   const renderItem = ({ item }) => <ItemList ant={item} />;
   return (
     <FlatList
